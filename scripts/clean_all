@@ -1,0 +1,6 @@
+#!/bin/bash
+shopt -s extglob
+
+rm ./bin/* || true
+find . -type d -name "out" -exec rm -rf {} + || true
+rm -rf ./build/!(CMakeLists.txt)
