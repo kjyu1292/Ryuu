@@ -41,9 +41,11 @@ int main(int argc, char* argv[])
 	
 	struct timespec start, end;
 	unsigned long long dur = 0;
-	for (register int i = 0; i < NUM_BATCHES; i++) {
+	for (register int i = 0; i < NUM_BATCHES; i++)
+	{
 		clock_gettime(CLOCK_MONOTONIC, &start);
-		for (register int j = 0; j < NUM_EPS; j++) {
+		for (register int j = 0; j < NUM_EPS; j++)
+		{
 			_random_uint32__m512(st_ptr, idx_ptr, result, num_blocks_m512);
 		}
 		clock_gettime(CLOCK_MONOTONIC, &end);
