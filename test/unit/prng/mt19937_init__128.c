@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
-#include "MT19937_SIMD.h"
+#include "MT19937.h"
 
 int main() {
 

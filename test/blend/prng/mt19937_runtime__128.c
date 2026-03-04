@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <time.h>
 #include <assert.h>
-#include "MT19937_SIMD.h"
+#include "MT19937.h"
 
 int main(int argc, char* argv[])
 {

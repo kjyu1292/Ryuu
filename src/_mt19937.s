@@ -71,7 +71,7 @@ _initialize_state__m128:
 	vpsrldq				xmm3, xmm2, 4
 	vmovdqa				xmm6, [rel mulMask]
 	
-_L0x01:
+._L0x01:
 	; seed >> (genRange_d - 2)
 	vpsrld				xmm4, xmm0, genRange_d
 
@@ -111,7 +111,7 @@ _L0x01:
 
 	add				rbx, 16
 	cmp				rbx, rcx
-	jbe				_L0x01
+	jbe				._L0x01
 
 	mov				dword [rsi], 0
 
@@ -139,7 +139,7 @@ _random_uint32__m128:
         vmovdqa				xmm11, [rel tempB_d_arr]
         vmovdqa				xmm12, [rel tempC_d_arr]
 
-_L0x02:
+._L0x02:
 	; get the state index, k
 	mov				ebx, dword [rsi]
 
@@ -246,7 +246,7 @@ _L0x02:
 
 	inc				r8
 	cmp				r8, rcx
-	jb				_L0x02
+	jb				._L0x02
 
 _end_random_uint32__m128:
 	pop				r12
@@ -286,7 +286,7 @@ _initialize_state__m512:
 	mov				rcx, recurDeg_d
 	sal				rcx, 6
 
-_L0x03:
+._L0x03:
 	; seed >> (genRange_d - 2)
 	vpsrld				zmm1 {k1}{z}, zmm0, genRange_d
 
@@ -306,7 +306,7 @@ _L0x03:
 	vpaddd				zmm4 {k1}{z}, zmm4, zmm3
 	add				rbx, 64
 	cmp				rbx, rcx
-	jbe				_L0x03
+	jbe				._L0x03
 
 	mov				dword [rsi], 0
 
@@ -344,7 +344,7 @@ _random_uint32__m512:
 	xor				r8, r8
 	xor				r12, r12
 
-_L0x04:
+._L0x04:
 	; get the state index, k
 	mov				ebx, dword [rsi]
 
@@ -441,7 +441,7 @@ _L0x04:
 
 	inc				r8
 	cmp				r8, rcx
-	jb				_L0x04
+	jb				._L0x04
 
 _end_random_uint32__m512:
 	pop				r12

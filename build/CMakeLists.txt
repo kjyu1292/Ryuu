@@ -16,11 +16,11 @@ set(C_FLAGS -Wall -Wextra -g)
 set(ASM_FLAGS -g -f elf64)
 set(VALGRIND_FLAGS -s --leak-check=full --show-leak-kinds=all --track-origins=yes)
 
-add_custom_target(mt19937_simd_obj
+add_custom_target(mt19937_obj
         COMMAND         nasm ${ASM_FLAGS} 
-                        -I${INC_DIR} ${SRC_DIR}/_mt19937_simd.s
-                        -o ${BIN_DIR}/_mt19937_simd.o
-        COMMENT         "Assembling _mt19937_simd.s"
+                        -I${INC_DIR} ${SRC_DIR}/_mt19937.s
+                        -o ${BIN_DIR}/_mt19937.o
+        COMMENT         "Assembling _mt19937.s"
 )
 
 add_custom_target(valgrind_all)
@@ -41,7 +41,7 @@ function(create_testUnit_targets test_file)
                                 -o ${BIN_DIR}/${test_name}.o 
                                 ${TEST_UNIT_DIR}/${test_name}.c
                 COMMENT         "Compiling ${test_name}.c"
-                DEPENDS         mt19937_simd_obj
+                DEPENDS         mt19937_obj
         )
     
         add_custom_target(${test_name}
@@ -49,7 +49,7 @@ function(create_testUnit_targets test_file)
                                 ${C_FLAGS}
                                 -o ${BIN_DIR}/${test_name}
                                 ${BIN_DIR}/${test_name}.o
-                                ${BIN_DIR}/_mt19937_simd.o
+                                ${BIN_DIR}/_mt19937.o
                 COMMENT         "Linking ${test_name}"
                 DEPENDS         ${test_name}_obj
         )
@@ -92,7 +92,7 @@ function(create_testBlend_targets test_file)
                                 -o ${BIN_DIR}/${test_name}.o
                                 ${TEST_BLEND_DIR}/${test_name}.c
                 COMMENT         "Compiling ${test_name}.c"
-                DEPENDS         mt19937_simd_obj
+                DEPENDS         mt19937_obj
         )
 
         add_custom_target(${test_name}
@@ -100,7 +100,7 @@ function(create_testBlend_targets test_file)
                                 ${C_FLAGS}
                                 -o ${BIN_DIR}/${test_name}
                                 ${BIN_DIR}/${test_name}.o
-                                ${BIN_DIR}/_mt19937_simd.o
+                                ${BIN_DIR}/_mt19937.o
                 COMMENT         "Linking ${test_name}"
                 DEPENDS         ${test_name}_obj
         )
