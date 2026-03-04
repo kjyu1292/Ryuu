@@ -1,8 +1,0 @@
-nasm -g -f elf64 -I/home/chubbumfuker69/work/Ryuu/include /home/chubbumfuker69/work/Ryuu/src/_mt19937.s -o /home/chubbumfuker69/work/Ryuu/bin/_mt19937.o
-
-nasm -g -f elf64 -I/home/chubbumfuker69/work/Ryuu/include /home/chubbumfuker69/work/Ryuu/src/_random_choice.s -o /home/chubbumfuker69/work/Ryuu/bin/_random_choice.o
-
-gcc -Wall -Wextra -g -I/home/chubbumfuker69/work/Ryuu/include -c -o /home/chubbumfuker69/work/Ryuu/bin/random_choice_noshuffle.o /home/chubbumfuker69/work/Ryuu/test/unit/prng/random_choice_noshuffle.c
-
-gcc -Wall -Wextra -g -o /home/chubbumfuker69/work/Ryuu/bin/random_choice_noshuffle /home/chubbumfuker69/work/Ryuu/bin/random_choice_noshuffle.o /home/chubbumfuker69/work/Ryuu/bin/_random_choice.o /home/chubbumfuker69/work/Ryuu/bin/_mt19937.o
-
