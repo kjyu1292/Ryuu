@@ -1,0 +1,9 @@
+#!/bin/bash
+
+mkdir -p ~/.config/terminator
+
+ln -sf ~/**/Ryuu/.dotfiles/gdb/.gdbinit ~/.gdbinit
+ln -sf ~/**/Ryuu/.dotfiles/vim/.vimrc ~/.vimrc
+ln -sf ~/**/Ryuu/.dotfiles/terminator/config ~/.config/terminator/config
+
+echo "Configurations linked successfully!"
