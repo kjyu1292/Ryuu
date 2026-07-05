@@ -1,0 +1,7 @@
+build/
+docs/
+venv/
+*.py
+*.txt
+src/
+bin/
